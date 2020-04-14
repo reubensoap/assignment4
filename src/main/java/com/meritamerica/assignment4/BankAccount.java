@@ -21,6 +21,8 @@ abstract class BankAccount {
 		 * 	-1 Target Source AccountNumbers are for Withdraw and Deposit methods
 		 *  
 		 */
+		
+		// used for creating Checking Accounts, Savings Accounts, CDAccounts
 		public BankAccount(double balance, double interestRate) {
 			this.balance = balance;
 			this.interestRate = interestRate;
@@ -30,6 +32,7 @@ abstract class BankAccount {
 			this.addTransaction(newTrans);
 		}
 		
+		// used for creating Checking Accounts, Savings Accounts, CDAccounts
 		public BankAccount(double balance, double interestRate
 				, java.util.Date accountOpenedOn) {
 			this.balance = balance;
@@ -40,6 +43,7 @@ abstract class BankAccount {
 			this.addTransaction(newTrans);
 		}
 		
+		// used for creating Accounts through ReadFromFile
 		public BankAccount(long accountNumber, double balance, double interestRate
 				, java.util.Date accountOpenedOn) {
 			this.accountNumber = accountNumber;
@@ -215,11 +219,15 @@ abstract class BankAccount {
 	                + "Checking Account Balance in 3 years: $" + format.format(this.futureValue(3));
 	    }
 		
+		// used for WriteToFile
+		
 		public String writeToString() {
 			SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
 	    	return this.accountNumber + "," + this.balance + "," + this.interestRate
 	    			+ "," + dateFormatter.format(this.accountOpenedOn);
 	    }
+		
+		// transaction methods
 		
 		public void addTransaction(Transaction transaction) {
 			this.list.add(transaction);

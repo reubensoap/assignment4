@@ -13,6 +13,7 @@ public class CDAccount extends BankAccount {
         this.offering = offering;
     }
     
+    // used for creation through ReadFromFile
     public CDAccount(int accountNum, double balance, double interest
     		, java.util.Date accountOpenedOn, int term) {
     	super(accountNum, balance, interest, accountOpenedOn);
@@ -44,11 +45,13 @@ public class CDAccount extends BankAccount {
     }
     
     // override from BankAccount withdraw , deposit , futureValue
+    // no need for withdraw for CDAccount
     public boolean withdraw(double amount){
         return false;
     }
 	
 	public boolean deposit(double amount) {
+		// Desosit only allowed during creation
 		if(this.getBalance() == 0) {
 			try {
 				if(amount <= 0){

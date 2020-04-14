@@ -17,6 +17,7 @@ public class SavingsAccount extends BankAccount {
         super(savingB, 0.01);
     }
     
+    // used for creation through ReadFromFile
     public SavingsAccount(int accountNum, double balance, double interestRate
     		, java.util.Date accountOpenedOn) {
     	super(accountNum, balance, interestRate, accountOpenedOn);

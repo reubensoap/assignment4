@@ -6,6 +6,8 @@ import java.util.Date;
 
 public class TransferTransaction extends Transaction {
 	
+	// used for creation the specific object of Transfer Transaction
+	
 	public TransferTransaction(long targetNum, long sourceNum, double amountNum, java.util.Date date) {
 		super(targetNum, sourceNum, amountNum, date);
 	}

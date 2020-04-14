@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CheckingAccount extends BankAccount {
-	//Variables
     
     //Constructors
     public CheckingAccount(){
@@ -17,6 +16,7 @@ public class CheckingAccount extends BankAccount {
         super(checkingB, 0.0001);
     }
     
+    // used for creation through ReadFromFile
     public CheckingAccount(long accountNumber, double balance, double interestRate
     		, java.util.Date accountOpenedOn) {
     	super(accountNumber, balance, interestRate, accountOpenedOn);

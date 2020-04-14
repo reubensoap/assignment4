@@ -31,6 +31,7 @@ public class MeritBank {
         return cdOfferingHolder;
     }
 
+    // used for get Best CDOffer inside the cdOfferingHolder array
     static CDOffering getBestCDOffering(double depositAmount){
         int best = 0;
         double tv;
@@ -49,6 +50,7 @@ public class MeritBank {
         return cdOfferingHolder[best];
     }
 
+    // used for get Second Best CDOffer inside the cdOfferingHolder array
     static CDOffering getSecondBestCDOffering(double depositAmount){
         int best = 0;
         int second = 0;
@@ -75,15 +77,20 @@ public class MeritBank {
         return cdOfferingHolder[second];
     }
 
+    // Clears the cdOfferingHolder array in order to get ready for another set of 
+    // CDOfferings
     static void clearCDOfferings(){
         CDOffering newArr[] = null;
         cdOfferingHolder = newArr;
     }
 
+    // Sets a new array of CDOfferings in the cdOfferingHolder 
     static void setCDOfferings(CDOffering[] offerings){
         cdOfferingHolder = offerings;
     }
 
+    // returns the balances of all AccountHolders inside the Merit
+    // Bank class
     static double totalBalances(){
         double tBalance = 0;
         for(int x = 0; x < accountHolder.length - 1; x++){
@@ -102,6 +109,9 @@ public class MeritBank {
     	MeritBank.lastAccountNumber = nextAccountNumber;
     }
     
+    // sorts AccountHolders based on CompareTo override in AccountHolder class
+    // starts at index 0 and ends at the second to last index due to last
+    // index being null
     static AccountHolder[] sortAccountHolders() {
     	Arrays.sort(accountHolder, 0, accountHolder.length - 1);
     	return accountHolder;
@@ -228,7 +238,7 @@ public class MeritBank {
 		}
 	}
     
-    public static boolean processTransaction(WithdrawTransaction transaction) {
+    public static boolean processTransaction(Transaction transaction) {
     	if(transaction.getTargetAccountNum() == -1) {
     			BankAccount source = transaction.getSourceAccount();
     			if(transaction.getSourceAccount() instanceof CheckingAccount) {
@@ -260,6 +270,8 @@ public class MeritBank {
     		return true;
     	}
     }
+    
+    /*
     
     public static boolean processTransaction(DepositTransaction transaction) {
     	if(transaction.getTargetAccountNum() == -1) {
@@ -295,7 +307,8 @@ public class MeritBank {
     	
     	
     }
-    
+    */
+    /*
     public static boolean processTransaction(TransferTransaction transaction) {
     	if(transaction.getTargetAccountNum() == -1) {
 			BankAccount source = transaction.getSourceAccount();
@@ -328,6 +341,7 @@ public class MeritBank {
     		return true;
     	}
     }
+    */
     
     static boolean readFromFile(String fileName) {
     	
